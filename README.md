@@ -12,7 +12,7 @@ Website Kalkulator Konversi Suhu yang dibuat ini adalah sebuah aplikasi sederhan
 - JavaScript
 
 # Cara Menggunakan
-1. Buka tautan [https://revou-fundamental-course.github.io/5-feb-24-AdonNeet/](https://revou-fundamental-course.github.io/10-jun-24-gusadiyanto/) pada tab baru.
+1. Buka tautan [https://revou-fundamental-course.github.io/10-jun-24-gusadiyanto/](https://revou-fundamental-course.github.io/10-jun-24-gusadiyanto/) pada tab baru.
 2. Masukkan nilai/angka suhu Celcius (°C) ataupun Fahrenheit (°F) dalam kotak input.
 3. Pilih unit suhu yang ingin Anda konversi, kemudian klik konversi.
 4. Tunggu sebentar dan hasil konversi akan muncul.
