@@ -26,7 +26,7 @@ Aplikasi ini dibuat untuk memenuhi Tugas Akhir Mini Course RevoU "Fundamental Co
 Dengan menggunakan aplikasi ini, semoga Anda dapat dengan mudah mengonversi suhu sesuai kebutuhan Anda!
 
 Demo/preview :
-[Celcius (°C) ataupun Fahrenheit (°F)](https://revou-fundamental-course.github.io/10-jun-24-gusadiyanto/)
+[https://revou-fundamental-course.github.io/10-jun-24-gusadiyanto/](https://revou-fundamental-course.github.io/10-jun-24-gusadiyanto/)
 
 AgusAdiyanto.Net
 - Juni 2024
