@@ -22,6 +22,7 @@ textarea.addEventListener('keydown', function(event) {
     tampilkanCalc();
     tampilkanRumus();
     tampilkanJudulCaraKonversi();
+    tampilkanLabelSuhu();
   }
 
   // Cek jika tombol yang ditekan adalah spasi]
@@ -49,6 +50,7 @@ document.body.addEventListener('keydown', function(event) { // ketika tidak di t
     tampilkanCalc();
     tampilkanRumus();
     tampilkanJudulCaraKonversi();
+    tampilkanLabelSuhu();
   }
 });
 
@@ -57,6 +59,7 @@ function konversi() {
   tampilkanCalc();
   tampilkanRumus();
   tampilkanJudulCaraKonversi();
+  tampilkanLabelSuhu();
 }
 
 // Fungsi untuk membalikkan jenis konversi
@@ -78,6 +81,8 @@ function reverseKonversi() {
   tampilkanCalc();
   tampilkanRumus();
   tampilkanJudulCaraKonversi();
+  tampilkanLabelSuhu();
+
 }
 
 function hitungKonversi() {
@@ -158,6 +163,25 @@ function tampilkanJudulCaraKonversi() {
   katex.render(judul, judulCaraKonversi);  // untuk merender LaTeX agar tampil pada html
 }
 
+function tampilkanLabelSuhu() {
+  const selectedOption = jenisKonversi.value;
+  let labelsuhuInput, labelsuhuOutput;
+
+  switch(selectedOption) {
+    case 'celsius-to-fahrenheit':
+      labelsuhuInput = "\\text{Celcius (\\degree C) :}";
+      labelsuhuOutput = "\\text{Fahrenheit (\\degree F) :}";
+      break;
+    case 'fahrenheit-to-celsius':
+      labelsuhuOutput = "\\text{Celcius (\\degree C) :}";
+      labelsuhuInput = "\\text{Fahrenheit (\\degree F) :}";
+      break;
+  }
+
+  katex.render(labelsuhuInput, suhuInput);  // untuk merender LaTeX agar tampil pada html
+  katex.render(labelsuhuOutput, suhuOutput);  // untuk merender LaTeX agar tampil pada html
+}
+
 function Reset() {
   document.getElementById("input-suhu").value = "";
   document.getElementById("kalkulasi").value = "";
@@ -170,3 +194,4 @@ hitungKonversi();
 tampilkanCalc();
 tampilkanRumus();
 tampilkanJudulCaraKonversi();
+tampilkanLabelSuhu();
