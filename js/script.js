@@ -21,6 +21,7 @@ textarea.addEventListener('keydown', function(event) {
     hitungKonversi();   
     tampilkanCalc();
     tampilkanRumus();
+    tampilkanJudulCaraKonversi();
   }
 
   // Cek jika tombol yang ditekan adalah spasi]
@@ -47,25 +48,15 @@ document.body.addEventListener('keydown', function(event) { // ketika tidak di t
     hitungKonversi();   
     tampilkanCalc();
     tampilkanRumus();
+    tampilkanJudulCaraKonversi();
   }
 });
 
-// jenisKonversi.addEventListener('change', function() {
-//   hitungKonversi();
-//   tampilkanCalc();
-//   tampilkanRumus();
-// });
-
-// inputSuhu.addEventListener('input', function() {
-//   hitungKonversi();
-//   tampilkanCalc();
-//   tampilkanRumus();
-// });
-
-function konversi() { // jika ingin input otomatis di kalkulasi uncomment 2 event listener diatas
-  hitungKonversi();   // kemudian comment fungsi ini
+function konversi() {
+  hitungKonversi();
   tampilkanCalc();
   tampilkanRumus();
+  tampilkanJudulCaraKonversi();
 }
 
 // Fungsi untuk membalikkan jenis konversi
@@ -80,24 +71,13 @@ function reverseKonversi() {
     case 'fahrenheit-to-celsius':
       reversedOption = 'celsius-to-fahrenheit';
       break;
-    case 'celsius-to-kelvin':
-      reversedOption = 'kelvin-to-celsius';
-      break;
-    case 'kelvin-to-celsius':
-      reversedOption = 'celsius-to-kelvin';
-      break;
-    case 'fahrenheit-to-kelvin':
-      reversedOption = 'kelvin-to-fahrenheit';
-      break;
-    case 'kelvin-to-fahrenheit':
-      reversedOption = 'fahrenheit-to-kelvin';
-      break;
   }
 
   jenisKonversi.value = reversedOption;
-  hitungKonversi();  // uncomment jika ingin input otomatis di kalkulasi setelah di reverse
-  tampilkanCalc();   
+  hitungKonversi();
+  tampilkanCalc();
   tampilkanRumus();
+  tampilkanJudulCaraKonversi();
 }
 
 function hitungKonversi() {
@@ -112,18 +92,6 @@ function hitungKonversi() {
       case 'fahrenheit-to-celsius':
         hasil = (suhu - 32) * 5/9;
         break;
-      case 'celsius-to-kelvin':
-        hasil = suhu + 273.15;
-        break;
-      case 'kelvin-to-celsius':
-        hasil = suhu - 273.15;
-        break;
-      case 'fahrenheit-to-kelvin':
-        hasil = (suhu - 32) * 5/9 + 273.15;
-        break;
-      case 'kelvin-to-fahrenheit':
-        hasil = (suhu - 273.15) * 9/5 + 32;
-        break;
     }
 
     if (isNaN(hasil)) {
@@ -133,38 +101,26 @@ function hitungKonversi() {
     }
   }
 
-  function tampilkanCalc() {
-    const selectedOption = jenisKonversi.value;
-    const suhu = inputSuhu.value;
-    let calcText;
+function tampilkanCalc() {
+  const selectedOption = jenisKonversi.value;
+  const suhu = inputSuhu.value;
+  let calcText;
 
-    switch(selectedOption) {
-      case 'celsius-to-fahrenheit':
-        calcText = suhu +" * (9/5) + 32 = " + outputSuhu.value;
-        break;
-      case 'fahrenheit-to-celsius':
-        calcText = "("+ suhu +" - 32) * (5/9) = " + outputSuhu.value;
-        break;
-      case 'celsius-to-kelvin':
-        calcText = suhu + " + 273.15 = " + outputSuhu.value;
-        break;
-      case 'kelvin-to-celsius':
-        calcText = suhu + " - 273.15 = " + outputSuhu.value;
-        break;
-      case 'fahrenheit-to-kelvin':
-        calcText = "(" + suhu + " - 32) * (5/9) + 273.15 = " + outputSuhu.value;
-        break;
-      case 'kelvin-to-fahrenheit':
-        calcText = "(" + suhu + " - 273.15) * (9/5) + 32 = " + outputSuhu.value;
-        break;
-    }
+  switch(selectedOption) {
+    case 'celsius-to-fahrenheit':
+      calcText = suhu +"°C * (9/5) + 32 = " + outputSuhu.value+"°F";
+      break;
+    case 'fahrenheit-to-celsius':
+      calcText = "("+ suhu +"°F - 32) * (5/9) = " + outputSuhu.value+"°C";
+      break;
+  }
 
-    if (outputSuhu.value === "Input angka tidak terdeteksi") {
-      kalkulasi.value = "Tidak ada kalkulasi yang terjadi";
-    } else {
-      kalkulasi.value = calcText;
-    }
-    
+  if (outputSuhu.value === "Input angka tidak terdeteksi") {
+    kalkulasi.value = "Tidak ada kalkulasi yang terjadi";
+  } else {
+    kalkulasi.value = calcText;
+  }
+  
 }
 
 function tampilkanRumus() {
@@ -180,29 +136,37 @@ function tampilkanRumus() {
       desc = "\\text{Suhu } S \\text{ dalam derajat Celcius (\\degree C) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Fahrenheit (\\degree F) dikurangi } 32 \\text{ kemudian kali } \\frac{5}{9}";
       rumusText = "\\Large S_{(\\degree C)} = (S_{(\\degree F)} - 32 ) \\times \\frac{5}{9}";
       break;
-    case 'celsius-to-kelvin':
-      desc = "\\text{Suhu } S \\text{ dalam derajat Kelvin (\\degree K) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Celcius (\\degree C) ditambah } 273.15";
-      rumusText = "\\Large S_{(\\degree K)} = S_{(\\degree C)} + 273.15";
-      break;
-    case 'kelvin-to-celsius':
-      desc = "\\text{Suhu } S \\text{ dalam derajat Celcius (\\degree C) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Kelvin (\\degree K) dikurangi } 273.15";
-      rumusText = "\\Large S_{(\\degree C)} = S_{(\\degree K)} - 273.15";
-      break;
-    case 'fahrenheit-to-kelvin':
-      desc = "\\text{Suhu } S \\text{ dalam derajat Kelvin (\\degree K) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Fahrenheit (\\degree F) dikurangi } 32 \\text{ kali } \\frac{5}{9} \\text{ ditambah } 273.15";
-      rumusText = "\\Large S_{(\\degree K)} = (S_{(\\degree F)} - 32) \\times \\frac{5}{9} + 273.15";
-      break;
-    case 'kelvin-to-fahrenheit':
-      desc = "\\text{Suhu } S \\text{ dalam derajat Fahrenheit (\\degree F) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Kelvin (\\degree K) dikurangi } 273.15 \\text{ kali } \\frac{9}{5} \\text{ ditambah } 32";
-      rumusText = "\\Large S_{(\\degree K)} = (S_{(\\degree F)} - 273.15) \\times \\frac{9}{5} + 32 \\\\ \\text{ } \\\\ \\text{atau} \\\\ \\text{ } \\\\ S_{(\\degree K)} = (S_{(\\degree F)} - 273.15) \\times 1.8 + 32";
-      break;
   }
 
   katex.render(desc, descRumus);  // untuk merender LaTeX agar tampil pada html
   katex.render(rumusText, rumus);
 }
 
+function tampilkanJudulCaraKonversi() {
+  const selectedOption = jenisKonversi.value;
+  let judul;
+
+  switch(selectedOption) {
+    case 'celsius-to-fahrenheit':
+      judul = "\\text{Cara Konversi dari Celcius (\\degree C) ke Fahrenheit (\\degree F)}";
+      break;
+    case 'fahrenheit-to-celsius':
+      judul = "\\text{Cara Konversi dari Fahrenheit (\\degree F) ke Celcius (\\degree C)}";
+      break;
+  }
+
+  katex.render(judul, judulCaraKonversi);  // untuk merender LaTeX agar tampil pada html
+}
+
+function Reset() {
+  document.getElementById("input-suhu").value = "";
+  document.getElementById("kalkulasi").value = "";
+  document.getElementById("output-suhu").value = "";
+  document.getElementById("judulCaraKonversi").value = "Cara Konversi";
+}
+
 // init script
 hitungKonversi();
 tampilkanCalc();
 tampilkanRumus();
+tampilkanJudulCaraKonversi();

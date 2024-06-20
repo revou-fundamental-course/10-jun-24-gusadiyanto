@@ -37,19 +37,19 @@
       <div class="box">
         <label for="input-suhu">Celsius (°C):</label>
         <br>
-        <textarea type="text" id="input-suhu"></textarea>
+        <textarea type="text" id="input-suhu" placeholder="Isi dengan angka"></textarea>
       </div>
     </div>
     <div class="row">
-      <div class="box"><!--
-        <label for="jenis-konversi">Pilih Jenis Konversi:</label>
+      <div class="box">
+        <label for="jenis-konversi">Pilih jenis konversi:</label>
         <br>
         <select id="jenis-konversi">
-          <option value="celsius-to-fahrenheit">Celsius ke Fahrenheit</option>
-          <option value="fahrenheit-to-celsius">Fahrenheit ke Celsius</option>
-        </select>-->
+          <option value="celsius-to-fahrenheit">Celsius (°C) ke Fahrenheit (°F)</option>
+          <option value="fahrenheit-to-celsius">Fahrenheit (°F) ke Celsius (°C)</option>
+        </select>
         <button onclick="konversi()">Konversi</button>
-        <button onclick="reset()">Reset</button>
+        <button onclick="Reset()">Reset</button>
         <button onclick="reverseKonversi()">Reverse</button>
         <br>
       </div>
@@ -63,14 +63,15 @@
     </div>
     <div class="row">
       <div class="box">
-        <label for="kalkulasi">Cara kalkulasi:</label>
+        <label for="kalkulasi">Cara Kalkulasi:</label>
         <br>
         <textarea id="kalkulasi" readonly></textarea>
       </div>
     </div>
   </div>
 
-  <h2><a id="user-content-h1" class="anchor" href="#cara-konversi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cara Konversi</h2>
+  <h2 id="judulCaraKonversi"><a id="user-content-h1" class="anchor" href="#cara-konversi" aria-hidden="true">
+    <span class="octicon octicon-link"></span></a></h2>
   <div id="descRumus"></div>
   <br>
   <div id="rumus"></div>
