@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Konversi Suhu</title>
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+        body {
+          box-sizing: border-box;
+          min-width: 200px;
+          max-width: 980px;
+          margin: 0 auto;
+          padding: 45px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          body {
+            background-color: #0d1117;
+          }
+        }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <article class="markdown-body">
+  <h1><a id="user-content-h1" class="anchor" href="#kalkulator-konversi-suhu" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kalkulator Konversi Suhu</h1>
+  <p style="font-size: 17px;">Masukkan suhu derajat Celsius (°C) ke kotak dibawah, lalu klik tombol Konversi untuk mendapatkan hasil konversi dalam bentuk Fahrenheit (°F).</p>
+  
+  <div class="container">
+    <div class="row">
+      <div class="box">
+        <label for="input-suhu">Celsius (°C):</label>
+        <br>
+        <textarea type="text" id="input-suhu"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="box"><!--
+        <label for="jenis-konversi">Pilih Jenis Konversi:</label>
+        <br>
+        <select id="jenis-konversi">
+          <option value="celsius-to-fahrenheit">Celsius ke Fahrenheit</option>
+          <option value="fahrenheit-to-celsius">Fahrenheit ke Celsius</option>
+        </select>-->
+        <button onclick="konversi()">Konversi</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="reverseKonversi()">Reverse</button>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="box">
+        <label for="output-suhu">Fahrenheit (°F):</label>
+        <br>
+        <textarea type="text" id="output-suhu" readonly></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="box">
+        <label for="kalkulasi">Cara kalkulasi:</label>
+        <br>
+        <textarea id="kalkulasi" readonly></textarea>
+      </div>
+    </div>
+  </div>
+
+  <h2><a id="user-content-h1" class="anchor" href="#cara-konversi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cara Konversi</h2>
+  <div id="descRumus"></div>
+  <br>
+  <div id="rumus"></div>
+
+  <!-- menambahkan script untuk membuat elemen-elemen diatas bekerja -->
+  <script src="./js/script.js"></script>
+  </article>
+</body>
+</html>
